@@ -45,7 +45,7 @@ $ ./install_and_build.sh
 2. **컨테이너 실행**
 
    ```bash
-   docker compose-up
+   docker-compose up
    ```
 
 3. **접속 정보**
