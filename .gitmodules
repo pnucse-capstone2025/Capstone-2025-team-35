@@ -1,3 +1,6 @@
 [submodule "storypool_ai_pipeline"]
 	path = storypool_ai_pipeline
 	url = https://github.com/jiwoong5/storypool_ai_pipeline.git
+[submodule "storypool-api"]
+	path = storypool-api
+	url = https://github.com/qqwwee771441/storypool-api.git
