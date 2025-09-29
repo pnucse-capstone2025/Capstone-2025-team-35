@@ -306,10 +306,12 @@ docker compose up
 
 ### 6. 소개 자료 및 시연 영상
 #### 6.1. 프로젝트 소개 자료
-> PPT 등
+
+https://github.com/pnucse-capstone2025/Capstone-2025-team-35/blob/main/docs/03.%EB%B0%9C%ED%91%9C%EC%9E%90%EB%A3%8C/%EB%B0%9C%ED%91%9Cppt.pptx
+ 
 #### 6.2. 시연 영상
-<link>
-<https://www.youtube.com/watch?v=4BcCm-qAaCs>
+ 
+https://www.youtube.com/watch?v=4BcCm-qAaCs
 
 ### 7. 팀 구성
 #### 7.1. 팀원별 소개 및 역할 분담
@@ -339,9 +341,15 @@ docker compose up
 
 ### 8. 참고 문헌 및 출처
 [1] Robin Rombach, Andreas Blattmann, Dominik Lorenz, Patrick Esser, and Björn Ommer, "High-Resolution Image Synthesis with Latent Diffusion Models," arXiv preprint arXiv:2307.01952, 2023.
+
 [2] Jacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova, "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding," arXiv preprint arXiv:1910.03771v2, 2019.
+
 [3] Nils Reimers and Iryna Gurevych, "Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks," arXiv preprint arXiv:2108.08877, 2021.
+
 [4] Hugo Touvron, Louis Martin, Kevin Stone, Peter Albert, Amjad Almahairi, et al., "LLaMA: Open and Efficient Foundation Language Models," arXiv preprint arXiv:2302.13971, 2023.
+
 [5] Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, et al., "Attention is All You Need," Advances in Neural Information Processing Systems (NeurIPS), pp. 5998-6008, 2017.
+
 [6] Banghao Chen, Yuanzhe Chen, Xue Jiang, et al., "Unleashing the Potential of Prompt Engineering in Large Language Models: A Comprehensive Review," arXiv preprint arXiv:2310.14735, 2023.
+
 [7] The University of Western Australia, "Emotional Psychology: Understanding Emotions and Feelings," University of Western Australia, 2023. [Online]. Available: https://online.uwa.edu/news/emotional-psychology
