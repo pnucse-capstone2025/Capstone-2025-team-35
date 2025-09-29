@@ -52,8 +52,9 @@
 
 ### 3. 시스템 설계
 #### 3.1. 시스템 구성도
-[
->
+
+![시스템구성도](https://github.com/pnucse-capstone2025/Capstone-2025-team-35/blob/main/src/storypool_architecture.png)
+
 #### 3.2. 사용 기술
 
 ##### 1. 인공지능(AI) 서버
@@ -158,8 +159,9 @@
 
 ### 4. 개발 결과
 #### 4.1. 전체 시스템 흐름도
-> 기능 흐름 설명 및 도식화 가능
->
+
+![시스템흐름도](https://github.com/pnucse-capstone2025/Capstone-2025-team-35/blob/main/src/storypool_flowchart.png)
+
 #### 4.2. 기능 설명 및 주요 기능 명세서
 ##### AI Pipeline 모듈 입출력 명세
 
