@@ -307,10 +307,18 @@ Submodule 참고
 
 ##### 클라이언트
 1. Unity 공식 사이트나 unity Hub을 통해 **Unity 6000.0.44f1**버전 다운로드
-2. storypool-client 레포지토리에서 **pnu_graduate.unitypackage**와 **PNU_graduate.apk**를 다운로드
+2. **git lfs**가 없다면 반드시 설치(크기가 큰 파일을 다룰 때 사용)
+```bash
+git lfs install
+```
+3. storypool-client 레포지토리를 원하는 경로에서 clone
+```bash
+git clone https://github.com/haenghaeng/storypool-client
+```
 3. Unity Hub에서 **Unity 6000.0.44f1**버전으로 **Universal 3D Core**로 임의의 프로젝트 생성
-4. 프로젝트가 실행되면, Assets - Import Package - Custom Package를 선택 후, 다운받은 패키지를 불러옴
+4. 프로젝트가 실행되면, **Assets - Import Package - Custom Package**를 선택 후, 다운받은 패키지를 불러옴
 5. apk파일은 USB포트를 컴퓨터와 연결한 뒤 파일을 전송하여 휴대폰에 설치
+6. 로컬 서버에서 테스트를 할 경우, **Assets/Scripts/Http/Global** 위치에 있는 **AppConstants.cs**을 열어 **public const string server**를 **http://localhost:8080**로 변경
 
 
 ### 6. 소개 자료 및 시연 영상
