@@ -161,30 +161,187 @@
 > 기능 흐름 설명 및 도식화 가능
 >
 #### 4.2. 기능 설명 및 주요 기능 명세서
-> 주요 기능에 대한 상세 설명, 각 기능의 입력/출력 및 설명
->
+##### AI Pipeline 모듈 입출력 명세
+
+##### 1. Translator
+- **입력(Input):** 한국어 일기 텍스트
+- **출력(Output):** 영어로 번역된 일기 텍스트
+
+
+##### 2. Story Writer
+- **입력(Input):** 번역된 일기 텍스트 (영어)
+- **출력(Output):** 해당 내용을 기반으로 작성된 이야기 텍스트
+
+##### 3. Scene Parser
+- **입력(Input):** 이야기 텍스트
+- **출력(Output):** JSON 형식의 씬 정보
+```json
+{
+  "scene_number": "1",
+  "scene_title": "",
+  "characters": [],
+  "time": "",
+  "mood": "",
+  "story": "",
+  "dialogue_count": "",
+  "location": ""
+}
+```
+##### 4. Prompt Maker
+
+- **입력(Input):** Scene Parser 결과 JSON
+- **출력(Output):** 씬별 이미지 생성용 프롬프트
+- 포함 내용: 주요 인물, 오브젝트, 외형 묘사, 행동 묘사, 장소 묘사
+
+##### 5. Image Maker
+- **입력(Input):** Prompt Maker에서 생성된 씬별 프롬프트
+- **출력(Output):** 생성된 이미지 파일 또는 URL
+
+##### 6. Notification
+- **입력(Input):** 없음 (DB에 기록된 Story 정보를 사용)
+- **출력(Output):** 웹서버 호출을 통한 알림 전송
+
 #### 4.3. 디렉토리 구조
->
-#### 4.4. 산업체 멘토링 의견 및 반영 사항
-> 멘토 피드백과 적용한 사례 정리
+##### ai 서버 디렉토리 구조
+```
+.storypool_ai_pipeline/
+│
+├── apis.py
+├── main.py
+├── requirements.txt
+│
+├── api_caller/
+│   ├── api_caller_interface.py
+│   ├── api_caller_selector.py
+│
+├── emotion_classifier/
+│   ├── emotion_classifier_interface.py
+│   ├── emotion_classifier_manager.py
+│   ├── emotion_classifier_selector.py
+│
+├── image_maker/
+│   ├── image_maker_interface.py
+│   ├── image_maker_manager.py
+│   ├── image_maker_selector.py
+│
+├── llama_tools/
+│   ├── llama_api_caller.py
+│   ├── llama_helper.py
+│
+├── object_analyst/
+│   ├── object_analyst_interface.py
+│   ├── object_analyst_manager.py
+│   ├── object_analyst_selector.py
+│
+├── ocr/
+│   ├── easy_ocr.py
+│   ├── ocr_interface.py
+│   ├── ocr_manager.py
+│   ├── ocr_selector.py
+│
+├── prompt_maker/
+│   ├── llama_prompt_maker.py
+│   ├── prompt_maker_interface.py
+│   ├── prompt_maker_manager.py
+│   ├── prompt_maker_selector.py
+│
+├── scene_parser/
+│   ├── basic_scene_parser.py
+│   ├── scene_parser_interface.py
+│   ├── scene_parser_manager.py
+│   ├── scene_parser_selector.py
+│
+├── story_writer/
+│   ├── llama_story_writer.py
+│   ├── story_writer_interface.py
+│   ├── story_writer_manager.py
+│   ├── story_writer_selector.py
+│
+└── translator/
+    ├── marian_translator.py
+    ├── nllb_translator.py
+    ├── translator_interface.py
+    ├── translator_manager.py
+    ├── translator_selector.py
+```
 
 ### 5. 설치 및 실행 방법
->
 #### 5.1. 설치절차 및 실행 방법
-> 설치 명령어 및 준비 사항, 실행 명령어, 포트 정보 등
-#### 5.2. 오류 발생 시 해결 방법
-> 선택 사항, 자주 발생하는 오류 및 해결책 등
+##### ai 파이프라인 서버
+##### ai 파이프라인 서버 요구사항
+- Python 3.12+
+- requirements.txt 참고
+- diffusers==0.34.0: 딥러닝 기반 이미지 생성 및 변환 모델(예: Stable Diffusion)을 쉽게 사용할 수 있도록 돕는 라이브러리
+- easyocr==1.7.2: 다양한 언어를 지원하는 간편한 OCR(문자 인식) 라이브러리
+- fastapi==0.115.14: Python으로 빠르고 효율적인 REST API 서버를 쉽게 개발할 수 있는 웹 프레임워크
+- httpx==0.28.1: 비동기 및 동기 HTTP 요청을 지원하는 고성능 HTTP 클라이언트 라이브러리
+- numpy==2.3.1: 고성능 수치 계산을 위한 배열 및 행렬 연산 라이브러리
+- Pillow==11.2.1: Python에서 이미지 처리와 조작을 위한 라이브러리 (PIL의 후속)
+- pydantic==2.11.7: 데이터 유효성 검사 및 설정 관리를 위한 타입 기반 모델링 라이브러리
+- pytest==8.4.1: Python 테스트 코드 작성과 실행을 도와주는 테스트 프레임워크
+- sentence_transformers==4.1.0: 문장 임베딩 벡터 생성 및 문장 간 유사도 계산에 특화된 라이브러리
+- torch==2.7.1: 딥러닝 모델 개발에 널리 쓰이는 PyTorch 라이브러리
+- transformers==4.53.0: Hugging Face에서 제공하는 다양한 사전학습 NLP 모델 사용 라이브러리
+- uvicorn==0.35.0: ASGI 기반 비동기 Python 웹서버, 주로 FastAPI와 함께 사용됨
+
+##### 설치
+프로젝트
+```bash
+git clone https://github.com/jiwoong5/storypool_ai_pipeline.git
+cd storypool_ai_pipeline
+pip install -r requirements.txt
+```
+llama 모델 - 3.2b - 3B  
+- [llama download](https://www.llama.com/llama-downloads/)
+- [ollama_download](https://ollama.com/download)
+- ollama pull llama3.2:3b
+
+##### 실행
+```bash
+docker compose up
+```
+##### 웹서버
+
+##### 클라이언트
 
 ### 6. 소개 자료 및 시연 영상
 #### 6.1. 프로젝트 소개 자료
 > PPT 등
 #### 6.2. 시연 영상
-> 영상 링크 또는 주요 장면 설명
+<link>
+<https://www.youtube.com/watch?v=4BcCm-qAaCs>
 
 ### 7. 팀 구성
 #### 7.1. 팀원별 소개 및 역할 분담
->
+
+##### 차행철
+- Unity engine 기반 클라이언트 어플리케이션 제작
+- UI/UX에 필요한 이미지, 애니메이션 제작
+- 동화에 사용할 이미지 배치 알고리즘 설계 및 적용
+
+##### 오지웅
+- 동화 생성을 위한 Core AI Model 활용
+- 이미지 생성을 위한 절차 설계 및 제작
+- 클라이언트 어플리케이션 제작 보조
+
+##### 최광진
+- 동화 공유 플랫폼을 위한 서버 제작
+- AI Model 서버, 클라이언트 사이의 데이터 전달 설계
+- 클라이언트 어플리케이션 제작 보조
+
 #### 7.2. 팀원 별 참여 후기
-> 개별적으로 느낀 점, 협업, 기술적 어려움 극복 사례 등
+
+##### 오지웅
+- 혼자라면 엄두 못낼 프로젝트를 다같이 함께해서 극복할 수 있었다.
+- 신선한 주제의 프로젝트를 요즘 핫한 ai 모델들을 활용해서 완성할 수 있었다.
+- docker나 github 등 협업을 위한 툴들을 활용해볼 수 있는 기회였다.
+- 사용자 입력 또는 생성형 ai 기반의 응용프로젝트에서 단계별 모니터링과 타입체크, 결과물 체크 등의 중요성을 알 수 있었다.
 
 ### 8. 참고 문헌 및 출처
+[1] Robin Rombach, Andreas Blattmann, Dominik Lorenz, Patrick Esser, and Björn Ommer, "High-Resolution Image Synthesis with Latent Diffusion Models," arXiv preprint arXiv:2307.01952, 2023.
+[2] Jacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova, "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding," arXiv preprint arXiv:1910.03771v2, 2019.
+[3] Nils Reimers and Iryna Gurevych, "Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks," arXiv preprint arXiv:2108.08877, 2021.
+[4] Hugo Touvron, Louis Martin, Kevin Stone, Peter Albert, Amjad Almahairi, et al., "LLaMA: Open and Efficient Foundation Language Models," arXiv preprint arXiv:2302.13971, 2023.
+[5] Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, et al., "Attention is All You Need," Advances in Neural Information Processing Systems (NeurIPS), pp. 5998-6008, 2017.
+[6] Banghao Chen, Yuanzhe Chen, Xue Jiang, et al., "Unleashing the Potential of Prompt Engineering in Large Language Models: A Comprehensive Review," arXiv preprint arXiv:2310.14735, 2023.
+[7] The University of Western Australia, "Emotional Psychology: Understanding Emotions and Feelings," University of Western Australia, 2023. [Online]. Available: https://online.uwa.edu/news/emotional-psychology
