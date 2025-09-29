@@ -4,3 +4,6 @@
 [submodule "storypool-api"]
 	path = storypool-api
 	url = https://github.com/qqwwee771441/storypool-api.git
+[submodule "storypool-client"]
+	path = storypool-client
+	url = https://github.com/haenghaeng/storypool-client
