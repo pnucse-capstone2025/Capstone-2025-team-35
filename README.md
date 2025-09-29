@@ -52,10 +52,109 @@
 
 ### 3. 시스템 설계
 #### 3.1. 시스템 구성도
-> 이미지 혹은 텍스트로 시스템 아키텍쳐 작성
+[
 >
 #### 3.2. 사용 기술
-> 프론트엔드, 백엔드, API 등 구체 기술 스택
+
+##### 1. 인공지능(AI) 서버
+
+##### 모델 및 프레임워크
+- **Hugging Face Hub**  
+  - 모델, 데이터셋, 토크나이저 공유 플랫폼  
+  - *Inference API*: 서버리스 추론 서비스 (무료 버전 토큰 제한 존재)
+
+- **Transformers**  
+  - 사전학습 트랜스포머 모델 저장/추론/재학습/미세조정 프레임워크  
+  - 다양한 토크나이저 제공  
+
+- **Sentence Transformers**  
+  - 문장 임베딩 특화 프레임워크  
+  - Cosine Similarity 기반 검색, 시맨틱 검색, 클러스터링 지원  
+
+##### 번역 모델
+- **Helsinki-NLP/opus-mt-ko-en**  
+  - 대표적인 오픈소스 한–영 번역 모델  
+  - BLEU: 41.3  
+
+- **NHNDQ/nllb-finetuned-en2ko**  
+  - NHN 다이퀘스트 영–한 번역 모델  
+  - BLEU: 33.66  
+
+##### 언어 모델
+- **LLaMA (Meta AI)**  
+  - 대규모 트랜스포머 기반 언어 모델 시리즈  
+  - 다양한 크기 및 추론 툴 제공  
+
+- **Ollama**  
+  - 로컬 환경에서 LLaMA 계열 모델 실행 지원 플랫폼  
+  - CPU 기반 실행 가능, 모델 다운로드 및 관리 지원  
+
+- **LLaMA 3.2B**  
+  - 소형 언어 모델 (3.2B 파라미터)  
+  - 다양한 양자화 기법(Int4, Int8) 적용  
+
+- **nreimers/MiniLM-L6-H384-uncased**  
+  - 경량 Sentence Embedding 모델  
+  - Self-supervised contrastive learning 기반  
+
+##### 이미지 생성
+- **Stable Diffusion XL (stabilityai/stable-diffusion-xl-base-1.0)**  
+  - 텍스트 기반 이미지 생성 모델  
+  - Base / Refiner 구조, OpenCLIP-ViT 기반 인코더 활용  
+
+##### 비동기 처리
+- **Redis Queue (RQ) + Worker 구조**  
+  - 작업 등록 → 큐 → 워커 → 결과 반환  
+
+##### Scene Parsing & Prompting
+- **Scene Parsing (LLM 활용)**  
+  - 이야기 데이터를 씬 단위 JSON 구조화  
+  - One-shot prompt + 재시도 로직 + 누락 보정  
+
+- **Prompt Maker**  
+  - 씬별 등장인물/의상/소품/상호작용 요소 생성  
+  - 일관성과 정밀도를 강화한 이미지 프롬프트 생성  
+
+##### 2. 서버 및 백엔드
+
+##### 프로그래밍 언어 / 프레임워크
+- **Java 21**
+- **Spring Boot 3.x** (REST API, 의존성 주입, 자동설정)
+- **Gradle (Groovy DSL)** 빌드 도구
+
+##### 외부 서비스 연동
+- **Firebase Cloud Messaging** (실시간 푸시 알림)  
+- **Gmail SMTP** (인증/알림 이메일)  
+- **AWS S3** (파일 업로드/저장, Presigned URL 방식)  
+
+##### 서버 인프라 및 운영 환경
+- **AWS Route 53** (도메인/DNS 관리)  
+- **Cloudflare Tunneling** (보안·네트워크 보호)  
+- **Nginx** (HTTPS/SSL 리버스 프록시)  
+- **Docker** (컨테이너 기반 배포/이식성 확보)  
+
+##### 데이터베이스 및 캐시
+- **MySQL** (관계형 DB, JPA/Hibernate)  
+- **Redis** (캐시, 세션 관리, 인증 코드 관리, RQ 기반 Job Queue)  
+
+##### 아키텍처 특성
+- **Domain-Oriented Architecture** (도메인 중심 구조)  
+- **RESTful API + Swagger (OpenAPI 3.1)** 문서화  
+- **JWT 인증** (Access/Refresh 토큰, Spring Security 기반 필터 체계)  
+
+##### 3. 클라이언트 앱
+
+##### OCR
+- **Google ML Kit for OCR**  
+  - 손글씨/이미지 → 텍스트 변환  
+  - Android ML Kit Vision API 활용  
+
+##### 애플리케이션 개발
+- **Unity (6000.0.44f1)**  
+  - UI/UX 설계 (Canvas, Button, TextMeshPro 등)  
+  - API 연동 (UnityWebRequest 비동기 호출)  
+  - 배경음악 제공 (동화 분위기 기반)  
+  - Animation Component 활용 시각효과 제공  
 
 ### 4. 개발 결과
 #### 4.1. 전체 시스템 흐름도
