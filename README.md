@@ -321,7 +321,8 @@ https://www.youtube.com/watch?v=4BcCm-qAaCs
 ##### 차행철
 - Unity engine 기반 클라이언트 어플리케이션 제작
 - UI/UX에 필요한 이미지, 애니메이션 제작
-- 동화에 사용할 이미지 배치 알고리즘 설계 및 적용
+- Google ML kit OCR을 활용한 텍스트 인식
+- 서버에서 제공하는 API를 기반으로 httpRequest 생성
 
 ##### 오지웅
 - 동화 생성을 위한 Core AI Model 활용
@@ -330,8 +331,11 @@ https://www.youtube.com/watch?v=4BcCm-qAaCs
 
 ##### 최광진
 - 동화 공유 플랫폼을 위한 서버 제작
-- AI Model 서버, 클라이언트 사이의 데이터 전달 설계
-- 클라이언트 어플리케이션 제작 보조
+- Al Model, 클라이언트 사이의 데이터 전달 설계
+- DB설계 및 데이터관리
+- 인증 및 보안설계
+- API 설계 및 Package 구조 설계
+- 인프라 설계 및 외부 서비스 연동
 
 #### 7.2. 팀원 별 참여 후기
 
@@ -340,6 +344,12 @@ https://www.youtube.com/watch?v=4BcCm-qAaCs
 - 신선한 주제의 프로젝트를 요즘 핫한 ai 모델들을 활용해서 완성할 수 있었다.
 - docker나 github 등 협업을 위한 툴들을 활용해볼 수 있는 기회였다.
 - 사용자 입력 또는 생성형 ai 기반의 응용프로젝트에서 단계별 모니터링과 타입체크, 결과물 체크 등의 중요성을 알 수 있었다.
+
+##### 차행철
+- Unity를 활용하여 기존에는 자주 사용하지 않던 UI 컴포넌트를 많이 다룰 수 있었다.
+- 클라이언트와 서버 간 협업을 어떻게 진행하는 지 이번 기회에 알 수 있었다.
+- Unity로 어떻게 Android에 빌드를 하고, 빌드 할 때 알아야 할 점을 배울 수 있었다.
+- 협업 과정을 어떻게 조율하고, 업무 배정을 어떻게 해야 하는지 알 수 있었다.
 
 ### 8. 참고 문헌 및 출처
 [1] Robin Rombach, Andreas Blattmann, Dominik Lorenz, Patrick Esser, and Björn Ommer, "High-Resolution Image Synthesis with Latent Diffusion Models," arXiv preprint arXiv:2307.01952, 2023.
