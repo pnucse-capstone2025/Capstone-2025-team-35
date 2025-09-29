@@ -305,6 +305,12 @@ docker compose up
 ##### 웹서버
 
 ##### 클라이언트
+1. Unity 공식 사이트나 unity Hub을 통해 **Unity 6000.0.44f1**버전 다운로드
+2. storypool-client 레포지토리에서 **pnu_graduate.unitypackage**와 **PNU_graduate.apk**를 다운로드
+3. Unity Hub에서 **Unity 6000.0.44f1**버전으로 **Universal 3D Core**로 임의의 프로젝트 생성
+4. 프로젝트가 실행되면, Assets - Import Package - Custom Package를 선택 후, 다운받은 패키지를 불러옴
+5. apk파일은 USB포트를 컴퓨터와 연결한 뒤 파일을 전송하여 휴대폰에 설치
+
 
 ### 6. 소개 자료 및 시연 영상
 #### 6.1. 프로젝트 소개 자료
