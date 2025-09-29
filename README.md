@@ -366,6 +366,12 @@ https://www.youtube.com/watch?v=4BcCm-qAaCs
 - Unity로 어떻게 Android에 빌드를 하고, 빌드 할 때 알아야 할 점을 배울 수 있었다.
 - 협업 과정을 어떻게 조율하고, 업무 배정을 어떻게 해야 하는지 알 수 있었다.
 
+##### 최광진
+- 팀원들이 너무 좋았고, 팀원 두 분께 너무 감사 했습니다. 제 기억에 남을 최고의 팀 이었어요.
+- 재미있는 주제라고 느꼈기에 더욱 흥미있게 참여할 수 있었습니다.
+- 여러가지 기술 도입을 고려하는 과정이 즐거웠고, 기술 선택에 대한 책임감을 느끼는 계기가 되었습니다.
+- 백엔드 개발에 관한 지식만 있었는데, 협업 및 운영 배포에 관한 지식이 확장되어 많은 것을 배울 수 있었습니다.
+
 ### 8. 참고 문헌 및 출처
 [1] Robin Rombach, Andreas Blattmann, Dominik Lorenz, Patrick Esser, and Björn Ommer, "High-Resolution Image Synthesis with Latent Diffusion Models," arXiv preprint arXiv:2307.01952, 2023.
 
