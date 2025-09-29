@@ -303,6 +303,7 @@ llama 모델 - 3.2b - 3B
 docker compose up
 ```
 ##### 웹서버
+Submodule 참고
 
 ##### 클라이언트
 1. Unity 공식 사이트나 unity Hub을 통해 **Unity 6000.0.44f1**버전 다운로드
